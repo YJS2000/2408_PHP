@@ -14,7 +14,7 @@
             <ul>
                 <li>
                     <label for="id">아이디</label>
-                    <input type="text" id="id" minlength="4" maxlength="10" placeholder="4자 ~ 10자 사이, 공백없이">
+                    <input type="text" id="id" required minlength="4" maxlength="10" placeholder="4자 ~ 10자 사이, 공백없이">
                 </li>
 
                 <li>
@@ -34,14 +34,16 @@
                 
                 <li>
                     <label for="join">가입 경로</label>
-                    <select id="join">
+                    <select name="path" id="join">
                         <option value="0">기타</option>
+                        <option value="1">친구추천</option>
+                        <option value="2">검색</option>
                     </select>
                 </li>    
 
                 <li>
                     <label for="box">메모</label>
-                    <textarea id="box" cols="30" rows="10" placeholder="남길 말씀이 있다면 여기에"></textarea>
+                    <textarea name="memo" id="box" cols="30" rows="10" placeholder="남길 말씀이 있다면 여기에"></textarea>
                 </li>
             </ul>                             
         </fieldset>
@@ -64,18 +66,6 @@
         <input type="reset" value="취소">
                 
     </form>
-
-
-
-
-
-
-
-
-
-
-
-
 
 </body>
 </html>
