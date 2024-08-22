@@ -1,0 +1,49 @@
+.h1_1, .span2{
+    color: white;
+    padding: 0px 0px 20px 0px;
+}
+
+
+.span1 {
+    color: orange;
+}
+div {
+    box-sizing: border-box;
+}
+.div1 {
+    border: 1px solid #000;
+    margin: 10px;
+    padding: 10px;
+    background-color: #000;
+    width: 800px;
+}
+
+.div2 {
+    border: 1px solid #000;
+    margin: 10px;
+    padding: 10px;
+    background-color: #000;
+    width: 800px;
+}
+
+.div3 {
+    border: 1px solid #000;
+    margin: 0px 10px;
+    width: 800px;
+    text-align: center;
+}
+
+.div4 {
+    border: 1px solid #000;
+    margin: 0px 10px;
+    width: 800px; 
+    text-align: center;
+    padding: 20px;
+}
+
+.span4 {
+    color: #ff0000;
+}
+.span5 {
+    color: #0000ff;
+}

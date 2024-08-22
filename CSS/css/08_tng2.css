@@ -1,0 +1,11 @@
+ul {
+    list-style-type: none;
+}
+li {
+    display:inline-block;
+    width: 80px;
+}
+img {
+    display: inline-block;
+    width: 20px;
+}
