@@ -1,0 +1,48 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #000;
+}
+
+.div0 {
+    border: 1px dotted;
+    width: 550px;
+    height: 800px;
+    background-image: url(../img/123.webp);
+    background-size: 200px;
+    background-repeat: no-repeat;
+    background-position: bottom 1px right 1px;
+    background-color: white;
+    margin: auto;
+}
+
+
+.div1 {
+    background-color: darkslategrey;
+    width: 500px;
+    color: white;
+    text-align: center;
+    margin: 30px auto;
+    padding: 20px;
+}
+
+.div2 {
+    width: 500px;
+    text-align: center;
+    font-style: italic;
+    margin: 30px auto;
+    color: darkslategrey;
+}
+
+.h2_1 {
+    color: red;
+    margin: 20px;
+}
+li {
+    margin: 10px 80px;
+    list-style: none;
+}

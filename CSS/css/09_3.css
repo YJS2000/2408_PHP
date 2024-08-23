@@ -1,0 +1,18 @@
+div {
+    width: 200px;
+    height: 150px;
+    border: 1px solid #000;
+    margin: 10px;
+}
+/* 선형 그라데이션 직선을 따라 점진적으로 */
+.div1 {
+    background: linear-gradient(
+        0deg, blue, skyblue 80%, white
+    );
+}
+/* 원형 그라데이션 타원형 그라데이션 효과를 줍니다*/
+.div2 {
+    background: radial-gradient(
+       circle at 0% 20%, blue, skyblue
+    );
+}
