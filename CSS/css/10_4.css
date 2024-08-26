@@ -1,0 +1,21 @@
+/* 
+    가상요소(Pseudo Element)
+        선택자에 추가는 키워드로
+        선택한 요소의 지정된 부분에 스타일을 적용
+
+        선택자::before 특정요소의 컨텐츠앞에 다른 요소를 삽입
+        선택자::after 특정요소의 컨텐츠 뒤에 다른 요소를 삽입
+*/
+.required::after {
+    content: '* ';
+    color: red;
+}
+
+/* 틀정 요소의 첫 글자를 선택 */
+p::first-letter {
+    color: red;
+}
+
+p::first-line {
+    color: green;
+}

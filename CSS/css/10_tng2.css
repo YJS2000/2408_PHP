@@ -1,0 +1,66 @@
+*{
+    margin: 7px;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    padding: 20px;
+    width: 550px;
+}
+
+fieldset {
+    background-image: url(../img/123.webp);
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+legend {
+    color: magenta;
+    font-size: 30px;
+    font-weight: 600;
+}
+
+textarea {
+    background: transparent;
+}
+    
+.label1 {
+    float: left;
+}
+
+.A1::before {
+    content: '*';
+    color: red;
+}
+
+input:focus{
+    border: 3px solid red;
+    outline: none;
+}
+
+input {
+    background: transparent;
+}
+
+input:checked + label {
+    color: red;
+    font-weight: 600;
+} 
+
+textarea:focus{
+    border: 3px solid red;
+    outline: none
+} 
+
+button:hover::after {
+    content:'내용을 다시 한 번 확인해 주세요.';
+    color: white;
+    background-color: black;
+    position: absolute;
+    left: 100px;
+    top: 345px;
+    padding: 5px;
+    font-size: 20px;
+
+}
