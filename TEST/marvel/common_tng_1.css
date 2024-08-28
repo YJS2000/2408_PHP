@@ -1,0 +1,123 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+}
+
+/* 사이드바 */
+ul {
+    list-style: none;  
+}
+
+.a1 {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    min-height: 100vh;
+    }
+
+.side-bar {
+    background-color: rgb(253, 88, 88);
+}
+
+h1 {
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+li {
+    color: white;
+    padding: 0.5rem 0.5rem;
+}
+
+.ul {
+    margin-bottom: 3rem;
+}
+
+.ul > li:nth-child(1) {
+    background-color: rgb(255, 174, 174);
+    font-weight: 900;
+}
+
+.ul :not(:first-child):hover {
+    background-color: black;
+    opacity: 0.8;
+    transition: all 1.5s;
+}
+
+/* 메인 */ 
+.main {
+    background-color: lightgray;
+}
+
+#search {
+    width: 80%;
+}
+
+.search-bar > form {
+    display: flex;
+    justify-content: space-around;
+    padding: 10px;
+}
+
+.button {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color:#6e5af0;
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+    font-weight: 900;
+    line-height: 40px;
+}
+
+h2 {
+    display: flex;
+    background-image: url(./img/main_title.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    justify-content: center;
+    align-items: center;
+    /* padding: 150px; */
+    color: white;
+    font-size: 3rem;
+    height: 300px;
+}
+
+
+.photo {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px,1fr));
+    margin: 1rem;
+    gap: 1rem;
+}
+
+.card {
+    background-color: white;
+    padding: 1rem;
+}
+
+.card-img {
+    padding-top: 60%;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.btn {
+    position :fixed;
+    bottom : 50px;
+    right: 50px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #000;
+    color: white;
+    border: none;
+}
