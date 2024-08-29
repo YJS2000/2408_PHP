@@ -6,7 +6,9 @@ body {
     font-style: normal;
 }
 
-
+html {
+    scroll-behavior: smooth;
+}
 
 * {
     margin: 0;
@@ -29,6 +31,11 @@ a {
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
+}
+
+.little-title-in2 > .btn:hover {
+    opacity: 0.5;
+    transition: all 1.5s;
 }
 
 .container {
@@ -122,7 +129,7 @@ h1 {
     font-size: 1rem;
 }
 
-.card > .card-btn:hover {
+a > .card-btn:hover {
     opacity: 0.5;
     transition: all 1.5s;
 }
