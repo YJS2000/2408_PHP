@@ -256,3 +256,31 @@ WHERE
 	END_AT IS NULL
 GROUP BY DEPT_CODE
 ;
+
+-- LIMIT, OFFSET : 출력하는 데이터의 개수를 제한
+SELECT *
+FROM employees
+ORDER BY emp_id ASC
+LIMIT 5 OFFSET 5;
+
+-- 현제 받고있는 급여중 사원의 연봉 상위 5명을 조회해주세요
+SELECT *
+FROM salaries
+WHERE end_at IS null
+ORDER BY salary DESC
+LIMIT 5
+;
+
+-- SELECT문의 기본 구조
+SELECT [DISTINCT] [컬럼명]
+FROM [테이블명]
+WHERE [쿼리 조건]
+GROUP BY [컬럼명] HAVING [집계함수 조건]
+ORDER BY [컬럼명 ASC || 컬럼명 DESC]
+LIMIT [n] OFFSET [n]
+;
+
+
+
+
+
