@@ -24,7 +24,7 @@ $arr = [
 ];
 
 foreach($arr as $key => $item) {
-    if($item["gender"] === "M" && $item["salary"] >= "5000" ) {
+    if($item["gender"] === "M" && (int)$item["salary"] >= 5000 ) {
         echo "id : ".$item["id"].", name : ".$item["name"]."\n";
     }
 }
