@@ -1,0 +1,57 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: '맑은고딕';
+}
+
+h1 {
+    padding: 20px;
+    text-align: center;
+    font-size: 3rem;
+    color: #88a0ff;
+}
+
+button {
+    background-color: #88A0FF;
+    border-radius: 40px;
+    border: none;
+    color: #FFF;
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #6886ff;
+}
+
+.btn-middle {
+    width: 150px;
+    height: 40px;
+}
+
+a {
+    text-decoration: none;
+    color: #000;
+}
+
+/* 메인 */
+main {
+    background-color: #D3DCFF;
+    padding: 15px 30px;
+    width: 800px;
+    margin: 0 auto;
+    border-radius: 10px;
+}
+
+/* 페이지 네이션 */
+
+.main-footer {
+    text-align: center;
+    margin: 40px 0px;
+}
+
+.btn-small {
+    width: 50px;
+    height: 50px;
+}
