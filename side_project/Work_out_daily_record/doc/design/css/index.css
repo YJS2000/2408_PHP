@@ -1,0 +1,89 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: '맑은고딕';
+}
+
+.main {
+    background-color: #b4b564;
+    width: 600px;
+    height: 800px;
+}
+
+.header-set {
+    text-align: center;
+    padding-top: 40px;
+}
+
+.img-center {
+    text-align: center;
+}
+
+img{
+    width: 170px;
+    height: 170px;
+    background-size: cover;
+    background-position: center;
+    margin: 20px;
+}
+
+.button-top {
+    height: 50px;
+    width: 100px;
+    border-radius: 20px;
+    border-style: none;
+    background-color: #E5E5AF;
+    margin: 0px 50px;
+}
+
+.item-head {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    background-color: #E5E5AF;
+    height: 50px;
+    width: 500px;
+    margin: 17px auto;
+    align-items: center;
+    text-align: center;
+    border-radius: 20px;
+}
+
+.item {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    background-color: #fff;
+    height: 50px;
+    width: 500px;
+    margin: 17px auto;
+    align-items: center;
+    text-align: center;
+    border-radius: 20px;
+}
+
+.main-top {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.main-top1 {
+    text-align: left;
+}
+
+.main-top2 {
+    text-align: right;
+}
+
+.main-footer {
+    text-align: center;
+}
+
+.button-bottom {
+    height: 40px;
+    width: 40px;
+    border-radius: 10px;
+    border-style: none;
+    background-color: #E5E5AF;
+    margin: 20px 3px;
+}
+
