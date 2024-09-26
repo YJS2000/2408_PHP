@@ -51,8 +51,27 @@
             
             //Transaction start
             $conn->beginTransaction();
+
+            $arr_prepare = [
+                "id" => $id
+                ,"title" => $title
+                ,"content" => $content
+            ];
+
+            my_board_update($conn, $arr_prepare);
+
+            // commit
+            $conn->commit();
+
+            // detail page로 이동
+            header("Location: /detail.php?id=".$id."&page=".$page);
+            exit;
         }
+        
     } catch(Throwable $th) {
+        if(!is_null($conn) && $conn->inTransaction()) {
+            $conn->rollBack();
+        }
         require_once(MY_PATH_ERROR);
         exit;
     }

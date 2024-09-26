@@ -1,6 +1,8 @@
 <?php
     require_once($_SERVER["DOCUMENT_ROOT"]."/config.php");
     require_once(MY_PATH_DB_LIB);
+    $conn = null;
+    
 
     // POST 처리
     if(strtoupper($_SERVER["REQUEST_METHOD"]) === "POST") {
@@ -24,7 +26,7 @@
             header("Location: /");
             exit;
         } catch(Throwable $th) {
-            if(is_null($conn)) {
+            if(!is_null($conn)) {
                 $conn->rollBack();
             }
             require_once(MY_PATH_ERROR);

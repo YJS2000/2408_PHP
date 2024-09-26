@@ -18,10 +18,12 @@ function my_db_conn() {
 function my_board_select_pagination(PDO $conn, array $arr_param) {
          // SQL
          $sql =
-            "SELECT"
+            " SELECT "
             ." * "
             ." from "
             ." board "
+            ." where "
+            ." deleted_at is null "
             
             ." order by "
             ." created_at DESC "
@@ -105,4 +107,57 @@ function my_board_select_id(PDO $conn, array $arr_param ) {
     }
 
     return $stmt->fetch();
+}
+
+function my_board_update(PDO $conn, array $arr_param) {
+    $sql =
+        " UPDATE board "
+        ." SET "
+        ." title = :title "
+        ." ,content = :content "
+        ." ,updated_at = now() "
+        ." WHERE "
+        ." id = :id "
+    ;
+
+    $stmt = $conn->prepare($sql);
+    $result_flg = $stmt->execute($arr_param);
+
+    if(!$result_flg) {
+        throw new Exception("쿼리 실행 실패");
+    }
+
+    if($stmt->rowCount() !== 1) {
+        throw new Exception("Update Count 이상");
+    }
+
+    return true;
+
+}
+
+// board 테이블 레코드 삭제
+
+function my_board_delete_id(PDO $conn, array $arr_param) {
+    $sql =
+        " UPDATE board "
+        ." set "
+        ." updated_at = now() "
+        ." ,deleted_at = now() "
+        ." where "
+        ." id = :id "
+    ; 
+
+    $stmt = $conn->prepare($sql);
+    $result_flg = $stmt->execute($arr_param);
+
+    if(!$result_flg) {
+        throw new Exception("쿼리 실행 실패");
+    }
+
+    if($stmt->rowCount() !== 1) {
+        throw new Exception("Delete Count 이상");
+    }
+
+    return true;
+
 }
