@@ -1,0 +1,80 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: '맑은고딕';
+}
+
+.main-info {
+    background-color: #b4b564;
+    width: 600px;
+    height: 500px;
+    margin: 20px auto;
+    border-radius: 20px;
+}
+
+.text1 {
+    font-size: 3rem;
+    text-align: center;
+    padding: 20px;
+}
+
+.text2 {
+    font-size: 1.5rem;
+    text-align: center;
+    padding: 10px;
+}
+
+.main-calculating {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    text-align: center;
+}
+
+.weight {
+    height: 50px;
+    width: 250px;
+    border-radius: 20px;
+    border-style: none;
+}
+
+.reps {
+    height: 50px;
+    width: 250px;
+    border-radius: 20px;
+    border-style: none;
+}
+
+.button-cal {
+    text-align: right;
+}
+
+button {
+    height: 50px;
+    width: 100px;
+    border-radius: 20px;
+    border-style: none;
+    background-color: #E5E5AF;
+    font-size: 1rem;
+    margin: 20px;
+}
+
+button:hover {
+    background-color: #818248;
+}
+
+.answer {
+    background-color: #fff;
+    height: 50px;
+    width: 550px;
+    border-radius: 20px;
+    margin: 0 auto;
+}
+
+.answer-list {
+    text-align: center;
+}
+
+p {
+    font-size: 1rem;
+}

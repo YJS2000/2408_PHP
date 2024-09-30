@@ -1,0 +1,29 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: '맑은고딕';
+}
+
+/* 메인 */
+.main-info {
+    background-color: #b4b564;
+    width: 600px;
+    height: 800px;
+    margin: 20px auto;
+    border-radius: 20px;
+}
+
+/* 버튼 */
+.button-top {
+    height: 50px;
+    width: 100px;
+    border-radius: 20px;
+    border-style: none;
+    background-color: #E5E5AF;
+    font-size: 1rem;
+}
+
+.button-top:hover {
+    background-color: #818248;
+}
