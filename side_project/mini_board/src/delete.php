@@ -56,28 +56,6 @@
             // 리스트 페이지로 이동
             header("Location: /");
 
-            exit;
-             // GET 처리
-            // --------------
-            // 파라미터 획득
-            // --------------
-            $id = isset($_GET["id"]) ? (int)$_GET["id"] : 0;
-            $page = isset($_GET["page"]) ? (int)$_GET["page"] : 1;
-
-            if($id < 1) {
-                throw new Exception("파라미터 이상");
-            }
-
-            // PDO instance
-            $conn = my_db_conn();
-
-            $arr_prepare = [
-                "id" => $id
-            ];
-
-            // 데이터 조회
-            $result = my_board_select_id($conn, $arr_prepare);
-
         }
 
     } catch(Throwable $th) {

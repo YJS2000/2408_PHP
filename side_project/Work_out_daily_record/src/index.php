@@ -11,7 +11,7 @@
         $page = isset($_GET["page"]) ? (int)$_GET["page"] : 1;
         $offset = ($page - 1 ) * MY_LIST_COUNT;
 
-        $start_page_button_number = (int)(floor(($page) / MY_PAGE_BUTTON_COUNT) * MY_PAGE_BUTTON_COUNT) + 1;
+        $start_page_button_number = (int)(floor(($page-1) / MY_PAGE_BUTTON_COUNT) * MY_PAGE_BUTTON_COUNT) + 1;
         $end_page_button_number = $start_page_button_number + (MY_PAGE_BUTTON_COUNT - 1);
 
         $end_page_button_number =  $end_page_button_number > $max_page ? $max_page : $end_page_button_number;
@@ -58,7 +58,7 @@
                     <a href="/calculating.php?page=<?php echo $page ?>"><button class="button-top">1rm 계산</button></a>
                 </div>
                 <div class="main-top2">
-                    <a href="/insert.php"><button class="button-top">글 작성</button></a>
+                    <a href="/insert.php?page=<?php echo $page ?>"><button class="button-top">글 작성</button></a>
                 </div>
 
             </div>
@@ -72,7 +72,7 @@
             
                 <div class="item">
                     <div><?php echo $item["id"] ?></div>
-                    <div><a href="/detail.php?<?php echo $item["id"] ?>&page=<?php echo $page ?>"><?php echo $item["title"] ?></a></div>
+                    <div><a href="/detail.php?id=<?php echo $item["id"] ?>&page=<?php echo $page ?>"><?php echo $item["title"] ?></a></div>
                     <div><?php echo date("Y-m-d",strtotime($item["created_at"])) ?></div>
                 </div>
 
@@ -86,7 +86,7 @@
             <?php } ?>
             
             <?php for($i = $start_page_button_number; $i <= $end_page_button_number; ++$i) { ?> 
-            <a href="/index.php?page=<?php echo $i ?>"><button class="button-bottom"><?php echo $i ?></button></a>  
+                <a href="/index.php?page=<?php echo $i ?>"><button class="button-bottom <?php echo $page === $i ? "btn-seleted" : "" ?>"><?php echo $i ?></button></a>  
             <?php } ?>
 
             <?php if($page !== $max_page) { ?>
