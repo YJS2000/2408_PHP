@@ -33,20 +33,26 @@
 
 .weight {
     height: 50px;
-    width: 250px;
+    width: 100%;
     border-radius: 20px;
     border-style: none;
+    text-align: center;
 }
 
 .reps {
     height: 50px;
-    width: 250px;
+    width: 100%;
     border-radius: 20px;
     border-style: none;
+    text-align: center;
 }
 
 .button-cal {
     text-align: right;
+}
+
+.calculating {
+    padding: 0 25px;
 }
 
 button {
@@ -64,6 +70,8 @@ button:hover {
 }
 
 .answer {
+    display: grid;
+    align-content: center;
     background-color: #fff;
     height: 50px;
     width: 550px;
@@ -73,8 +81,10 @@ button:hover {
 
 .answer-list {
     text-align: center;
+    padding: 0 25px;
 }
 
 p {
     font-size: 1rem;
+    text-align: left;
 }

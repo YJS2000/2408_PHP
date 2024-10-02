@@ -3,6 +3,7 @@
     require_once($_SERVER["DOCUMENT_ROOT"]."/config.php");
     require_once(MY_PATH_DB_LIB);
     $value = null;
+    $num = 0;
 
     if(strtoupper($_SERVER["REQUEST_METHOD"]) === "POST") {
        
@@ -36,13 +37,13 @@
 
                 <div class="calculating">
                     <p>무게(kg)</p>
-                    <input class="weight" type="number" name="num">
+                    <input value="<?php echo $num ?>" class="weight" type="number" name="num">
                 </div>
                 
 
                 <div class = "calculating">
-                    <p>반복횟수</p>
-                        <select class = "reps" name="reps">
+                    <p>반복횟수</p> 
+                        <select class="reps" name="reps">
                             <option value="1">1회 반복</option>
                             <option value="2">2회 반복</option>
                             <option value="3">3회 반복</option>
@@ -53,7 +54,7 @@
                             <option value="8">8회 반복</option>
                             <option value="9">9회 반복</option>
                             <option value="10">10회 반복</option>
-                        </select>
+                        </select>                       
                 </div>
                 
             </div>

@@ -55,9 +55,9 @@
         <form action="/insert.php" method="post">
             <div class="content-box">
                 <p>운동 종목</p>
-                <textarea name="title" id="title" placeholder="운동종목"></textarea>
+                <textarea required name="title" id="title" placeholder="운동종목"></textarea>
                 <p>운동 내용</p>
-                <textarea name="content" id="content" placeholder="값을 입력하세요"></textarea>
+                <textarea required name="content" id="content" placeholder="값을 입력하세요"></textarea>
             </div>
     
 
