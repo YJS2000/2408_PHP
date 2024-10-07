@@ -1,4 +1,12 @@
 /* 메인 */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: '맑은고딕';
+}
+
 .img-center {
     text-align: center;
 }
@@ -44,3 +52,42 @@ p {
     font-size: 1.2rem;
 }
 
+.comment-main {
+    background-color: #B4B564;
+    width: 600px;
+    margin: 0 auto;
+    border-radius: 20px;
+    text-align: center;
+}
+
+.text1 {
+    height: 30px;
+    width: 100px;
+    margin-top: 10px;
+    margin-bottom: 3px;
+    border-style: none;
+    font-size: 1rem;
+}
+
+.text2 {
+    height: 30px;
+    width: 500px;
+    margin-bottom: 10px;
+    border-style: none;
+    font-size: 1rem;
+}
+
+.comment_top {
+    text-align: left;
+    padding: 0 50px;
+}
+
+.text3 {
+    background-color: #e5e5af
+}
+
+.comment-btn {
+    border-style: none;
+    background-color: #e5e5af;
+    border-radius: 2px;
+}

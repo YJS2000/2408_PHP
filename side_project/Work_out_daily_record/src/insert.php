@@ -47,7 +47,7 @@
     <div class="main-info">
 
         <div class="img-center">
-            <img src="./css/pngegg.png" alt="덤벨">
+            <a href="/index.php"><img src="./css/pngegg.png" alt="덤벨"></a>
             <h2>운동 일지 작성</h2>
         </div>
 

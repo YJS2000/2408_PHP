@@ -67,7 +67,7 @@
     <div class="main-info">
 
         <div class="img-center">
-            <img src="./css/pngegg.png" alt="덤벨">
+            <a href="/index.php"><img src="./css/pngegg.png" alt="덤벨"></a>
             <h2>정말 삭제하시겠습니까?</h2>
         </div>
 

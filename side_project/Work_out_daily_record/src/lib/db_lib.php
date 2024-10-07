@@ -73,6 +73,26 @@ function my_board_select_id(PDO $conn, array $arr_param) {
     return $stmt->fetch();
 }
 
+function my_title_select_id(PDO $conn, array $arr_param) {
+    $sql =
+    " SELECT "
+    ." * "
+    ." from "
+    ." title "
+    ." WHERE "
+    ." id = :id "
+    ;
+
+    $stmt = $conn->prepare($sql);
+    $result_flg = $stmt->execute($arr_param);
+
+    if(!$result_flg) {
+        throw new Exception("쿼리 실행 실패");
+    }
+
+    return $stmt->fetchAll();
+}
+
 function my_board_insert(PDO $conn, array $arr_param) {
     $sql =
         " INSERT INTO daily_record( "
@@ -82,6 +102,36 @@ function my_board_insert(PDO $conn, array $arr_param) {
         ." VALUES ( "
         ." :title "
         ." ,:content "
+        ." ) "
+    ;
+
+    $stmt = $conn->prepare($sql);
+    $result_flg = $stmt->execute($arr_param);
+
+    if(!$result_flg) {
+        throw new Exception("쿼리 실행 실패");
+    }
+
+    $result_cnt = $stmt->rowCount();
+    
+    if($result_cnt !== 1) {
+        throw new Exception("insert count 이상");
+    }
+
+    return true;
+}
+
+function my_title_insert(PDO $conn, array $arr_param) {
+    $sql =
+        " INSERT INTO title( "
+        ." id "
+        ." ,nickname "
+        ." ,comment_title "
+        ." ) "
+        ." VALUES ( "
+        ." :id "
+        ." ,:nickname "
+        ." ,:comment_title "
         ." ) "
     ;
 
