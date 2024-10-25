@@ -60,3 +60,24 @@ function test4(a, b) {
     }
 }
 
+// -----------------
+// 즉시실행 함수
+// -----------------
+const execFnc = (function(a, b) {
+    return a + b;
+})(5, 6) //결과값 바로나옴 11
+
+// ----------------
+// 콜백 함수
+//-----------------
+function myCallBack() {
+    console.log('myCallBack'); // 언젠가 사용하게되는 함수
+}
+
+function myChkPrint(callBack, flg) {
+    if(flg) {
+        callBack();
+    }
+}
+
+myChkPrint(myCallBack, true);
