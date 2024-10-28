@@ -6,9 +6,11 @@ let resultSort = COPY_ARR.sort((a, b) => a - b)
 console.log(ARR1)
 console.log(resultSort);
 
-resultSort.forEach((val, idx) => {
-    console.log(val)
-})
+    // 1. froeach(), incluof()이용
+
+    // 2. filter(), indxedOFㅇ;영
+
+    //. set 객체
 
 
 // 짝수와 홀수를 분리해서 각각 새로운 배열 만들어주세요
