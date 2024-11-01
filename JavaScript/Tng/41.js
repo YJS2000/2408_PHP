@@ -1,7 +1,7 @@
 let intervalId = null;
 
 function updateTime() {
-    const NOW = new Date('2024-01-01 00:00:00');
+    const NOW = new Date();
 
     const addLpadZero = (num, length) => {
         return String(num).padStart(length, "0");
