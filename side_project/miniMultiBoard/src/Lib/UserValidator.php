@@ -26,7 +26,7 @@ class UserValidator {
 
         // 페스워드 확인 체크
         if(array_key_exists('u_password_chk', $data)) {
-            if($data['u_password'] === $data['u_password_chk']) {
+            if($data['u_password'] !== $data['u_password_chk']) {
                 $arrErrorMsg[] = '비밀번호와 비밀번호 확인이 같지안습니다.';
             }
         }
