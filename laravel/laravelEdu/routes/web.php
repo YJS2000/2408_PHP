@@ -1,7 +1,13 @@
 <?php
 
+use App\Http\Controllers\QueryController;
+use App\Http\Controllers\QueryCueryController;
+use App\Http\Controllers\TaskController;
+use App\Http\Controllers\TestController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -154,3 +160,50 @@ Route::prefix('/users')->group(function() {
         return 'DELETE : /users';
     });
 });
+
+// ---------------------
+// 컨트롤러 연결
+// ---------------------
+// 커맨드로 컨트롤러 생성 : php artisan make:controller 컨트롤러명
+// Route::get('/test', [TestController::class, 'index']);
+
+// Route::get('/task', [TestController::class, 'index']);
+// Route::get('/task/create', [TestController::class, 'create']);
+// Route::post('/task', [TestController::class, 'store']);
+// Route::get('/task/{id}', [TestController::class, 'show']);
+// Route::get('/task/edit/{id}', [TestController::class, 'edit']);
+// Route::put('/task/{id}', [TestController::class, 'update']);
+// Route::delete('/task/{id}', [TestController::class, 'destroy']);
+Route::resource('/task', TaskController::class)->except(['index', 'create']);
+// GET|HEAD        task ................... task.index › TaskController@index  
+// POST            task ................... task.store › TaskController@store  
+// GET|HEAD        task/create .......... task.create › TaskController@create  
+// GET|HEAD        task/{task} .............. task.show › TaskController@show  
+// PUT|PATCH       task/{task} .......... task.update › TaskController@update  
+// DELETE          task/{task} ........ task.destroy › TaskController@destroy  
+// GET|HEAD        task/{task}/edit ......... task.edit › TaskController@edit
+
+// ------------------
+// 블레이드 템플릿 용
+// ------------------
+Route::get('/edu', function() {
+    return view('edu')
+                ->with('data', ['name' => '홍길동', 'content' =>"<script>alert('tt')</script>"]);
+});
+
+Route::get('/boards', function() {
+    return view('board');
+});
+
+Route::get('/extends', function () {
+    $result = [
+        ['id' => 1, 'name' => '홍길동', 'gender' => 'C']
+        ,['id' => 2, 'name' => '갑순이', 'gender' => 'F']
+        ,['id' => 3, 'name' => '갑돌이', 'gender' => 'M']
+    ];
+
+    return view('extends')
+            ->with('data', $result);
+ });
+
+Route::get('/query', [QueryController::class, "index"]);
