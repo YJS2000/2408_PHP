@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use DateTimeInterface;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -19,5 +20,9 @@ class Board extends Model
         ,'b_content'
         ,'b_img'
     ];
+
+    protected function serialize(DateTimeInterface $data) {
+        return $data->format('Y-M-d H:i:s');
+    }
 }
 
