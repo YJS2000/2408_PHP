@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\Board;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
+use Throwable;
 
 class BoardController extends Controller
 {
@@ -32,7 +34,7 @@ class BoardController extends Controller
     // 작성 페이지로 이동
     public function create()
     {
-        //
+        return view('insert');
     }
 
     /**
@@ -44,7 +46,19 @@ class BoardController extends Controller
     // 작성처리 (실제로 db에 처리되는것)
     public function store(Request $request)
     {
-        //
+        try {
+            DB::beginTransaction();
+            Board::create([
+                'b_title' => $request->b_title
+                ,'b_content' => $request->b_content
+                ,'b_img' => $request->b_img
+            ]);
+            DB::commit();
+            } catch(Throwable $th) {
+                DB::rollBack();
+                return redirect()->route('boards.index')->withErrors($th->getMessage());
+            }
+            return redirect()->route('boards.index');
     }
 
     /**

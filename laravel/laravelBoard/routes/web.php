@@ -24,4 +24,10 @@ Route::post('/login', [UserController:: class, 'login'])->name('login');
 Route::get('/logout', [UserController::class, 'logout'])->name('logout');
 
 // 게시판 관련
-Route::resource('/boards', BoardController::class)->except(['update', 'edit']);
+Route::middleware('auth')->resource('/boards', BoardController::class)->except(['update', 'edit']);
+
+// 회원가입 관련
+Route::get('/regist', [UserController::class, 'regist'])->name('regist');
+Route::post('/registlogin', [UserController::class, 'registLogin'])->name('registLogin');
+
+Route::get('/insert', [userController::class, 'insert'])->name('insert');

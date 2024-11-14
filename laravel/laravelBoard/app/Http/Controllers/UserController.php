@@ -5,9 +5,11 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Validator;
+use Throwable;
 
 class UserController extends Controller
 {
@@ -66,5 +68,53 @@ class UserController extends Controller
         Session::regenerate();
         return redirect()->route('goLogin');
 
+    }
+
+    // 회원가입 페이지로 이동
+    public function regist() {
+        return view('regist');
+    }
+
+    // 회원가입후 정보 넘겨주기
+    public function registLogin(Request $request) {
+        $validator = Validator::make(
+        $request->only('u_email', 'u_password', 'name')
+        ,[
+            'u_email' => ['required', 'email', 'unique:users,u_email']
+            ,'u_password' => ['required', 'between:6,20', 'regex:/^[a-zA-Z0-9!@]+$/']
+            ,'name' => ['required', 'between:1,20', 'regex:/^[가-힣]+$/']
+        ]
+        );
+
+        if($validator->fails()) {
+            return redirect()
+            ->route('regist')
+            ->withErrors($validator->errors());
+        }
+
+        $hashedPassword = Hash::make($request->u_password);
+
+        // 회원정보 삽입
+
+        $userInsert = new User();
+        $userInsert->u_email = $request->u_email;
+        $userInsert->u_password = $hashedPassword;
+        $userInsert->name = $request->name;
+        $userInsert->save();
+
+        return redirect()->route('goLogin');
+
+        // try {
+        //     DB::beginTransaction();
+        //     User::create([
+        //         'u_email' => $request->u_email
+        //         ,'u_password' => Hash::make($request->u_password)
+        //         ,'name' => $request->name
+        //     ]);
+        //     DB::commit();
+        //     } catch(Throwable $th) {
+        //         DB::rollBack();
+        //     }
+        //     return redirect()->route('goLogin');
     }
 }
