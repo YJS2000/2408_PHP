@@ -18,17 +18,16 @@
             <span>{{$item}}</span>
         @endforeach
     @endif
-    <h1>자유게시판</h1>
-    <a href="{{ route('boards.create') }}">
-        <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-plus-circle-fill" viewBox="0 0 16 16">
-            <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3z"/>
-        </svg>
-    </a>
+    <h1>{{ $boardInfo->bc_name }}</h1>
+    <svg onclick="redirectInsert({{ $boardInfo->bc_type }});" xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-plus-circle-fill" viewBox="0 0 16 16">
+        <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3z"/>
+    </svg>
+
 </div>
 
 <main>
     @foreach ($data as $item)
-    <div class="card">
+    <div class="card" id="card{{ $item->b_id }}">
         <img src="{{$item->b_img}}" class="card-img-top object-fit-cover" style="height: 300px;" alt="...">
         <div class="card-body">
             <h5 class="card-title">{{ $item->b_title }}</h5>
@@ -54,8 +53,13 @@
                 <br>
                 <img id="modalImg" src="./img/1.jpg" class="card-img-top" alt="">
             </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">닫기</button>
+            <div class="modal-footer justify-content-between">
+                <div id="modalDeleteParent">
+                    <button id="modalDelete" type="button" class="btn btn-warning">삭제</button>
+                </div>
+                <div>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">닫기</button>
+                </div>
             </div>
         </div>
     </div>

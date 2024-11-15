@@ -21,8 +21,9 @@ class Board extends Model
         ,'b_img'
     ];
 
-    protected function serialize(DateTimeInterface $data) {
-        return $data->format('Y-M-d H:i:s');
+    protected function serializeDate(DateTimeInterface $date)
+    {
+        return $date->format('Y-m-d H:i:s');
     }
 }
 

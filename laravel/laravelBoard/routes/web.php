@@ -19,15 +19,15 @@ Route::get('/', function () {
     return redirect()->Route('goLogin');
 });
 // 로그인 관련
-Route::get('/login', [UserController::class, 'goLogin'])->name('goLogin');
-Route::post('/login', [UserController:: class, 'login'])->name('login');
+Route::middleware('guest')->get('/login', [UserController::class, 'goLogin'])->name('goLogin');
+Route::middleware('guest')->post('/login', [UserController:: class, 'login'])->name('login');
 Route::get('/logout', [UserController::class, 'logout'])->name('logout');
 
 // 게시판 관련
 Route::middleware('auth')->resource('/boards', BoardController::class)->except(['update', 'edit']);
 
 // 회원가입 관련
-Route::get('/regist', [UserController::class, 'regist'])->name('regist');
-Route::post('/registlogin', [UserController::class, 'registLogin'])->name('registLogin');
+Route::middleware('guest')->get('/regist', [UserController::class, 'regist'])->name('regist');
+Route::middleware('guest')->post('/registlogin', [UserController::class, 'registLogin'])->name('registLogin');
 
 Route::get('/insert', [userController::class, 'insert'])->name('insert');
