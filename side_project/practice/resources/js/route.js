@@ -1,5 +1,6 @@
 import {createWebHistory, createRouter } from 'vue-router'
 import LoginComponent from '../views/components/auth/LoginComponent.vue'
+import BoardListComponent from '../views/components/board/BoardListComponent.vue';
 
 const routes = [
     {
@@ -10,7 +11,11 @@ const routes = [
         path: '/login',
         component: LoginComponent,
     },
-]
+    {
+        path: '/board',
+        component: BoardListComponent,
+    },
+]   
 
 const router = createRouter({
     history: createWebHistory(),
