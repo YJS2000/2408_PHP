@@ -4,6 +4,8 @@ namespace App\Utils;
 
 use MyEncrypt;
 use App\Models\User;
+use Illuminate\Support\Facades\DB;
+use PDOException;
 
 class MyToken {
     /**
@@ -19,6 +21,34 @@ class MyToken {
 
         return [$accessToken, $refreshToken];
     }
+
+    /**
+     * 리프레시 토큰 업데이트
+     * 
+     * @param app\Model\User $userInfo 유저정보
+     * @param string $refreshToken
+     * 
+     * @return bool true
+     */
+    public function updateRefreshToken(User $userInfo, string $refreshToken) {
+        $userInfo->refresh_token = $refreshToken;
+
+        DB::beginTransaction();
+
+        if(!($userInfo->save())) {
+            DB::rollBack();
+            throw new PDOException('Eroor updateRefreshToken()');
+        }
+        DB::commit();
+
+        return true;
+    }
+
+
+
+    // -----------------
+    // private
+    // -----------------
 
     /** 
      * JWT 생성
