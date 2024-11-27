@@ -6,7 +6,7 @@
                 <div class="title">
                     <a href=""><h1>Vuestagram</h1></a>
                 </div>
-                <img src="/3.jpg" class="img-logo"lt="">
+                <img src="/logo.png" class="img-logo">
                 <div class="btn-group">
                     <div v-if="!$store.state.user.authFlg">
                         <router-link to="/login"><button class="btn btn-header btn-bg-black">로그인</button></router-link>
@@ -19,6 +19,7 @@
             </div>
         </div>
     </header>
+
     <!-- Main -->
     <main>
         <UserInfoComponent v-if="$store.state.user.authFlg" />
@@ -27,16 +28,17 @@
         </div>
     </main>
 
-
     <!-- Footer -->
     <footer>
-        <p>너무 어렵따 진짜루 나 정말 많은일이 있었따..</p>
+        <p>ⓒ 2024. Meerkat All rights reserved.</p>
     </footer>
 </template>
+
 <script setup>
-import UserInfoComponent from './user/UserInfoComponent.vue'
+import UserInfoComponent from './user/UserInfoComponent.vue';
 
 </script>
+
 <style>
 @import url('../../css/common.css');
 </style>

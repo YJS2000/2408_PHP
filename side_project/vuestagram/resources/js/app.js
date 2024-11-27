@@ -1,15 +1,14 @@
 require('./bootstrap');
 
 import { createApp } from 'vue';
-import AppComponent from '../views/components/AppComponent.vue';
-import store from './store/store'
 import router from './router';
+import store from './store/store';
+import AppComponent from '../views/components/AppComponent.vue';
 
 createApp({
     components: {
         AppComponent,
     }
-
 })
 .use(store)
 .use(router)

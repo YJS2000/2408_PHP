@@ -1,53 +1,78 @@
 <template>
     <!-- 리스트 -->
-     <div class="board-list-box">
-        <div @click="openModal" class="item">
-            <img src="/img/4.jpg" alt="">
+    <div class="board-list-box">
+        <div v-for="item in boardList" :key="item" @click="openModal(item.board_id)" class="item">
+            <img :src="item.img">
         </div>
-        <div @click="openModal" class="item">
-            <img src="/img/3.jpg" alt="">
-        </div>
-        <div @click="openModal" class="item">
-            <img src="/img/2.png" alt="">
-        </div>
-        <div @click="openModal" class="item">
-            <img src="/img/1.jpg" alt="">
-        </div>
+    </div>
 
-     </div>
-     <!-- 상세 모달 -->
-      <div v-show="modalFlg" class="board-detail-box">
-        <div class="item">
-            <img src="/img/4.jpg">
+    <!-- 상세 모달 -->
+    <div v-show="modalFlg" class="board-detail-box">
+        <div v-if="boardDetail" class="item">
+            <img :src="boardDetail.img">
             <hr>
-            <p>내용내용</p>
+            <p>{{ boardDetail.content }}</p>
             <hr>
             <div class="etc-box">
-                <span>작성자 : 김아무개</span>
-                <button @click="closeModal">닫기</button>
+                <span>작성자 : {{ boardDetail.user.name }}</span>
+                <button @click="closeModal" class="btn btn-bg-black">닫기</button>
             </div>
         </div>
-      </div>
+    </div>
 </template>
 
 <script setup>
-import { ref } from 'vue';
+import { computed, onBeforeMount, ref } from 'vue';
+import { useStore } from 'vuex';
 
-   
+const store = useStore();
 
-    // -----------------------
-    // 모달 관련
-    const modalFlg = ref(false);
-    const openModal = () => {
-        modalFlg.value = true;
+// 보드 상세 정보
+const boardDetail = computed(() => store.state.board.boardDetail);
+
+// 보드리스트
+const boardList = computed(() => store.state.board.boardList);
+
+// 비포 마운트 처리
+onBeforeMount(() => {
+    if(store.state.board.boardList.length < 1) {
+        store.dispatch('board/boardListPagenation');
     }
-    const closeModal = () => {
-        modalFlg.value = false;
+});
+
+//-------------------------------
+// 스크롤 이벤트 관련
+const boardScrollEvent = () => {
+    if(store.state.board.controllFlg) {
+        const docHeight = document.documentElement.scrollHeight; // 문서기준 Y축 길이
+        const winHeight = window.innerHeight; // 윈도우의 Y축 총길이
+        const nowHeight = window.scrollY; // 현재 스크롤 위치
+        const viewHeight = docHeight - winHeight; // 끝까지 스크롤 했을때 Y축 위치
+        
+        if(viewHeight <= nowHeight) {
+            store.dispatch('board/boardListPagenation');
+        }
+
     }
-    // -----------------------
+}
+
+window.addEventListener('scroll', boardScrollEvent );
+
+
+// ------------------------------
+// 모달 관련
+const modalFlg = ref(false);
+const openModal = (id) => {
+    store.dispatch('board/showBoard', id)
+    modalFlg.value = true;
+}
+const closeModal = () => {
+    modalFlg.value = false;
+}
+// ------------------------------
 
 </script>
 
 <style>
-    @import url('../../../css/boardList.css');
+@import url('../../../css/boardList.css');
 </style>

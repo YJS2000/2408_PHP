@@ -21,7 +21,7 @@ class BoardFactory extends Factory
         return [
             'user_id' => $user->user_id,
             'content' => $this->faker->realText(rand(10, 100)),
-            'img' => '/img/'.rand(1,4).'.jpg',
+            'img' => '/img/meerkat'.rand(0,6).'.png',
             'like' => rand(1,300),
         ];
     }

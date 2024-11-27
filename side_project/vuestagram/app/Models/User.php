@@ -2,8 +2,6 @@
 
 namespace App\Models;
 
-use DateTimeInterface;
-use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -12,7 +10,8 @@ class User extends Authenticatable
 {
     use HasFactory, Notifiable;
 
-    protected $primaryKey ='user_id';
+    protected $primaryKey = 'user_id';
+
     /**
      * The attributes that are mass assignable.
      *
@@ -24,7 +23,7 @@ class User extends Authenticatable
         'password',
         'gender',
         'profile',
-        'refresh_token'
+        'refresh_token',
     ];
 
     /**
@@ -37,12 +36,18 @@ class User extends Authenticatable
         'refresh_token',
     ];
 
-    protected function serializeDate(\DateTimeInterface $date){
-        return 
-        $date->format('Y-m-d H:i:s');
+    /**
+     * TimeZone format when serializing JSON
+     *
+     * @param \DateTimeInterface $date
+     *
+     * @return String('Y-m-d H:i:s')
+     */
+    protected function serializeDate(\DateTimeInterface $date) {
+        return $date->format('Y-m-d H:i:s');
     }
+
     public function boards() {
         return $this->hasMany(Board::class, 'user_id');
     }
 }
-

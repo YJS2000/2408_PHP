@@ -13,16 +13,24 @@ class Board extends Model
     protected $primaryKey = 'board_id';
 
     protected $fillable = [
-       'user_id',
-       'content',
-       'img',
-       'like',
+        'user_id',
+        'content',
+        'img',
+        'like',
     ];
 
-    protected function serializeDate(\DateTimeInterface $date){
+    /**
+     * TimeZone format when serializing JSON
+     *
+     * @param \DateTimeInterface $date
+     *
+     * @return String('Y-m-d H:i:s')
+     */
+    protected function serializeDate(\DateTimeInterface $date) {
         return $date->format('Y-m-d H:i:s');
     }
-    public function users() {
-        return $this->belongTk(User::class, 'user_id');
+
+    public function user() {
+        return $this->belongsTo(User::class, 'user_id')->select('user_id', 'name');
     }
 }

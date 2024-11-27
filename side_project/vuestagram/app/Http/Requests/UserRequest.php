@@ -5,20 +5,9 @@ namespace App\Http\Requests;
 use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Http\Exceptions\HttpResponseException;
-use PhpParser\Node\Expr\FuncCall;
 
 class UserRequest extends FormRequest
 {
-    // /**
-    //  * Determine if the user is authorized to make this request.
-    //  *
-    //  * @return bool
-    //  */
-    // public function authorize()
-    // {
-    //     return false;
-    // }
-
     /**
      * Get the validation rules that apply to the request.
      *
@@ -27,8 +16,8 @@ class UserRequest extends FormRequest
     public function rules()
     {
         $rules = [
-            'account' => ['required', 'between:5,20', 'regex:/^[0~9a-zA-z]+$/']
-            ,'password' => ['required', 'between:5,20', 'regex:/^[0~9a-zA-z!@]+$/']
+            'account' => ['required', 'between:5,20', 'regex:/^[0-9a-zA-Z]+$/']
+            ,'password' => ['required', 'between:5,20', 'regex:/^[0-9a-zA-Z!@]+$/']
         ];
 
         if($this->routeIs('post.login')) {
@@ -38,7 +27,7 @@ class UserRequest extends FormRequest
         return $rules;
     }
 
-    protected function failedValidation(Validator $validator){
+    protected function failedValidation(Validator $validator) {
         $response = response()->json([
             'success' => false,
             'message' => '유효성 체크 오류',
