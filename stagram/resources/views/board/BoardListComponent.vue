@@ -17,7 +17,9 @@
             <hr>
             <div>
                 <span>작성자 : {{ boardDetail.user.name }}</span>
-                <button @click="closeModal">닫기</button>
+                <button @click="closeModal" class="btn">닫기</button>
+                <button class="btn">수정</button>
+                <button @click="destroyBoard(boardDetail.board_id)" class="btn">삭제</button>
             </div>
         </div>
     </div>
@@ -71,6 +73,11 @@ const openModal = (id) => {
     modalFlg.value = true;
 }
 
+const destroyBoard = (id) => {
+    modalFlg.value = false;
+    store.dispatch('board/destroyBoard',id)
+}
+
 
 
 </script>
@@ -120,5 +127,8 @@ const openModal = (id) => {
     .modal-img {
         width: 300px;
         height: 300px;
+    }
+    .btn {
+        margin-left: 5px;
     }
 </style>
